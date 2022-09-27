@@ -1,0 +1,10 @@
+Technical Details
+
+---To run--- 
+  Run index.html as a local live server.
+
+---Collision detection and resolution---
+  - Collision detection between rotated rectangles is achieved using SAT (Seperating axis theorem).
+  - Once collision between two rectangles is detected, a vector along the minimum depth of the collision
+    is found.
+  - Each rectangle is moved along this vector at half the depth of the collision, in opposite directions.
