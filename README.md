@@ -31,3 +31,7 @@ Capable of simulating collisions between rotated rectangles, forces on these rec
   
 ---Spring Object---
   - The spring object allows for spring physics between two rectangles using Hooke's law. 
+
+---FUTURE PLANS---
+  - Add angular momentum to objects for rotation after collision.
+  - Create more generic 'shape' object for circles and other convex polygons.
