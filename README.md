@@ -7,7 +7,7 @@ Video showcase: https://youtu.be/2t3RidaoUaE
 ---Technical Details---
 
 ---To run--- 
-  Run index.html as a local live server.
+  - Run index.html as a local live server.
   
 ---Rectangle object---
   - Main object used for visualisation. 
