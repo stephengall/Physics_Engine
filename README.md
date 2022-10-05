@@ -2,9 +2,9 @@
 Physics engine built within Javascript using p5.js framework for visuals
 Capable of simulating collisions between rotated rectangles, forces on these rectangles, as well as springs.
 
-Video showcase: https://youtu.be/2t3RidaoUaE
+[Video showcase](https://youtu.be/2t3RidaoUaE)
 
----Technical Details---
+# H1 Technical Details
 
 ---To run--- 
   - Run index.html as a local live server.
@@ -33,7 +33,7 @@ Video showcase: https://youtu.be/2t3RidaoUaE
 ---Spring Object---
   - The spring object allows for spring physics between two rectangles using Hooke's law. 
 
----FUTURE PLANS---
+# H2 Future Plans
   - Add angular momentum to objects for rotation after collision.
   - Create more generic 'shape' object for circles and other convex polygons.
   - Implement time step functionality for more accurate simulations.
