@@ -4,7 +4,7 @@ Capable of simulating collisions between rotated rectangles, forces on these rec
 
 [Video showcase](https://youtu.be/2t3RidaoUaE)
 
-# H1 Technical Details
+# Technical Details
 
 ---To run--- 
   - Run index.html as a local live server.
@@ -33,7 +33,7 @@ Capable of simulating collisions between rotated rectangles, forces on these rec
 ---Spring Object---
   - The spring object allows for spring physics between two rectangles using Hooke's law. 
 
-# H2 Future Plans
+# Future Plans
   - Add angular momentum to objects for rotation after collision.
   - Create more generic 'shape' object for circles and other convex polygons.
   - Implement time step functionality for more accurate simulations.
