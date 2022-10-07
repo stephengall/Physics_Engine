@@ -1,6 +1,6 @@
 # Physics_Engine
-Physics engine built within Javascript using p5.js framework for visuals
-Capable of simulating collisions between rotated rectangles, forces on these rectangles, as well as springs.
+> Physics engine built within Javascript using p5.js framework for visuals
+> Capable of simulating collisions between rotated rectangles, forces on these rectangles, as well as springs.
 
 [Video showcase](https://youtu.be/2t3RidaoUaE)
 
