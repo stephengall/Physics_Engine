@@ -37,3 +37,4 @@ Capable of simulating collisions between rotated rectangles, forces on these rec
   - Add angular momentum to objects for rotation after collision.
   - Create more generic 'shape' object for circles and other convex polygons.
   - Implement time step functionality for more accurate simulations.
+  - Setup different scenarios so user can switch between easily.
