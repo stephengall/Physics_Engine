@@ -6,6 +6,7 @@ class CollisionDetector {
         this.minDepth;
         this.minDir;
     }
+    //fills perpVectors array with vectors perpendicular to all the edges
     updatePerpVector() {
 
         this.perpVectors = [];
@@ -19,6 +20,7 @@ class CollisionDetector {
             this.perpVectors.push(tempVec1);
         }
     }
+    //checks for collision between two rectangles
     evaluate(rec1, rec2) {
         //for every vertex in rec1 and rec2, evaluate their dot product relative every vector perpendicular to the edges
 
@@ -59,18 +61,19 @@ class CollisionDetector {
         }
         this.minDepth /= this.minDir.mag();
         this.minDir.normalize();
-//creating vector between centres of shapes
+        //creating vector between centres of shapes
         var centres = createVector();
         centres.x = this.rec2.returnCentres().x - this.rec1.returnCentres().x;
         centres.y = this.rec2.returnCentres().y - this.rec1.returnCentres().y;
 
+        //checking which side of the shape the collision is occurring 
         if(this.minDir.dot(centres) < 0)
             this.minDir.mult(-1);
-        stroke(250, 100);
-        strokeWeight(4);
+
         this.moveAlongVector();
         return true;
     }
+    //resolves collision by pushing them away from each other, adds force proportional to the velocities before collision
     moveAlongVector() {
         if((this.rec2.vel.sub(this.rec1.vel)).dot(this.minDir) > 0 && !(this.rec1.locked || this.rec2.locked))
             return;
@@ -93,7 +96,6 @@ class CollisionDetector {
             this.rec2.y1 += this.minDir.y;
         }
 
-
         this.minDir.normalize();
         this.rec1.updateVertices();
         this.rec2.updateVertices();
@@ -104,7 +106,7 @@ class CollisionDetector {
             stroke(51, 125);
             noFill();
             strokeWeight(4);
-            //circle(collisionPoints[i].x, collisionPoints[i].y, 15);
+            circle(collisionPoints[i].x, collisionPoints[i].y, 15);
         }
 
         var relativeVelocity = createVector();
