@@ -1,6 +1,5 @@
 class Rectangle{
     constructor(x, y, rWidth, rHeight, angle){
-      //super(x, y);
       this.x1 = x;
       this.y1 = y;
       this.rWidth = rWidth;
@@ -23,7 +22,7 @@ class Rectangle{
       this.rotAcc = 0;
       
       this.updateVertices();  
-  }
+    }
     addForce(force){
       if(this.locked) return;
       this.acc.add(force);
@@ -33,6 +32,18 @@ class Rectangle{
       this.x1 += tempVec.x;
       this.y1 += tempVec.y;
       this.vel.mult(0.99);
+      this.acc.mult(0);
+      this.updateVertices();
+    }
+    //will be used in future for terminal velocities
+    addGrav(force){
+      if(this.locked) return;
+      this.acc.add(force);
+      this.vel.add(this.acc);
+      this.vel.limit(10);
+      var tempVec = createVector(this.vel.x, this.vel.y);
+      this.x1 += tempVec.x;
+      this.y1 += tempVec.y;
       this.acc.mult(0);
       this.updateVertices();
     }
@@ -55,6 +66,7 @@ class Rectangle{
       rect(0, 0, this.rWidth, this.rHeight);
       pop();
     }
+    //allows shapes that exit the canvas to wrap back around to the other side
     edges(){
       if(this.x1 < 0){
         this.x1 = width;
@@ -69,6 +81,7 @@ class Rectangle{
         this.y1 = height;
       }
     }
+    //updates vertices array based on rectangle's width, rotation and the location of one vertex
     updateVertices(){
       this.vertices = [];
       this.x2 = this.rWidth * cos(this.angle) + this.x1;

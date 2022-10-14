@@ -48,12 +48,8 @@ function mousePressed() {
   // }
 }
 function draw() {
-  background(250);
+background(250);
   
-/*loops through shapes, finds nearby candidates using Table object, calls evaluate function - which detects collisions,
-  resolves them, and applies an opposing force*/
-
-
 shapes[clothWidth - 1].x1 = width - 50;
 shapes[clothWidth - 1].y1 = 50;
 
@@ -62,7 +58,8 @@ if(mouseIsPressed){
   shapes[0].y1 = mouseY;
 }
 
-
+/*loops through shapes, finds nearby candidates using Table object, calls evaluate function - which detects collisions,
+  resolves them, and applies an opposing force*/
 for(var u = 0; u < timeStep; u++){
   for (var x = 0; x < shapes.length; x++) {
     var index = (shapes[x].tableIndex.x + shapes[x].tableIndex.y * lookup.cols) % lookup.table.length;
@@ -76,8 +73,7 @@ for(var u = 0; u < timeStep; u++){
   var updateVector = createVector(0, 0);
   for (var p = 0; p < shapes.length; p++) {
     shapes[p].addForce(updateVector);
-    shapes[p].addForce(gravity);
-    // shapes[p].edges();
+    shapes[p].addGrav(gravity);
   }
   lookup.updateTable(shapes);
   for(var i = 0; i < springs.length; i++){
@@ -93,9 +89,5 @@ for (var p = 0; p < shapes.length; p++){
 for(var i = 0; i < springs.length; i++)
   springs[i].show();
 
-  fill(51);
-  noStroke();
-  textSize(24);
-  //text("Number of entities: " + shapes.length, 10, 30);
 }
 

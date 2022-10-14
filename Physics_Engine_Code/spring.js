@@ -17,6 +17,7 @@ class Spring{
         strokeWeight(4);
         line(this.point1.returnCentres().x, this.point1.returnCentres().y, this.point2.returnCentres().x, this.point2.returnCentres().y);
     }
+    //adds force to rectangles proportional to its distance away from the strings rest position
     updatePos(){
         var direction = createVector(this.point1.x1 - this.point2.x1, this.point1.y1 - this.point2.y1);
         var d = dist(this.point2.x1, this.point2.y1, this.point1.x1, this.point1.y1);
