@@ -9,9 +9,9 @@
 **To run**
   - Run index.html as a local live server.
 
-  - If PHP is installed run the following command in your terminal:
-    `php -S localhost:8000`
-  - Make your way over to http://localhost:8000 to see the sketch running.
+>  - If PHP is installed run the following command in your terminal:  
+>    `php -S localhost:8000`
+>  - Make your way over to http://localhost:8000 to see the sketch running.
     
 **Rectangle object**
   - Main object used for visualisation. 
