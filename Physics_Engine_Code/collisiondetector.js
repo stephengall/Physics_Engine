@@ -121,7 +121,9 @@ class CollisionDetector {
     }
 
     returnNearestPoint(rec1, rec2){
+        //output stored in array since there can be either 1 or 2 contact points
         var result = new Array(p5.Vector);
+        //smallest distance
         var resultMag = Number.MAX_VALUE;
 
         for(var i = 0; i < rec1.vertices.length; i++){
@@ -130,9 +132,11 @@ class CollisionDetector {
             var nearestVertex = createVector();
             var nearestDistance = createVector();
             for(var j = 0; j < rec2.vertices.length; j++){
+                //storing two vectors as two endpoints on an edge on second rectangle
                 var e1 = createVector(rec2.vertices[j].x, rec2.vertices[j].y);
                 var e2 = createVector(rec2.vertices[(j + 1) % rec2.vertices.length].x, rec2.vertices[(j + 1) % rec2.vertices.length].y);
    
+                //current vertex to measure from on first rectangle
                 var currentVertex = createVector(rec1.vertices[i].x, rec1.vertices[i].y);
                 var pointContact = createVector();
 
