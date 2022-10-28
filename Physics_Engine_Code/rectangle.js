@@ -11,7 +11,7 @@ class Rectangle{
       this.red = random(0, 200);
       this.green = random(0, 200);
       this.blue = random(0, 200);
-      this.mass = this.rWidth * this.rHeight / 250;
+      this.mass = this.rWidth * this.rHeight;
       this.restitution = 1;
       this.vel = createVector(0, 0);
       this.acc = createVector(0, 0);
