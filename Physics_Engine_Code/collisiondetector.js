@@ -113,11 +113,18 @@ class CollisionDetector {
         relativeVelocity = this.rec2.vel.sub(this.rec1.vel);
 
         var restitution = min(this.rec1.restitution, this.rec2.restitution);
-        var j = -(1 + restitution) * (relativeVelocity.dot(this.minDir));
-        j /= (1 / this.rec1.mass + 1 / this.rec2.mass);
+        // var j = -(1 + restitution) * (relativeVelocity.dot(this.minDir));
+        // j /= ((1 / this.rec1.mass) + (1 / this.rec2.mass));
+        // console.log(j);
+        var sepVel = relativeVelocity.dot(this.minDir);
+        var sepVelVec = this.minDir.mult(sepVel);
 
-        if(!this.rec1.locked) this.rec1.vel.sub(this.minDir.mult(j / this.rec1.mass));
-        if(!this.rec2.locked) this.rec2.vel.add(this.minDir.mult(j / this.rec2.mass));
+        // if(!this.rec1.locked) this.rec1.vel.sub(this.minDir.mult(j / this.rec1.mass));
+        // if(!this.rec2.locked) this.rec2.vel.add(this.minDir.mult(j / this.rec2.mass));
+
+        if(!this.rec1.locked) this.rec1.vel.add(sepVelVec);
+        if(!this.rec2.locked) this.rec2.vel.sub(sepVelVec);
+       
     }
 
     returnNearestPoint(rec1, rec2){

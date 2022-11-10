@@ -1,5 +1,5 @@
 var shapes = [];
-var numOfShapes = 300;
+var numOfShapes = 20;
 var detector;
 var lookup;
 var tableScale = 1;
@@ -10,15 +10,15 @@ var numOfSprings = 0;
 var gravity;
 var timeStep = 1;
 var clothWidth = 15;
-var collision = false;
-var springConnect = true;
+var collision = true;
+var springConnect = false;
 
 function setup() {
   createCanvas(1200, 800);
   
   //initialising new shape objects
   for (var i = 0; i < numOfShapes; i++) {
-    shapes.push(new Rectangle(random(200, width - 200), random(height / 2 - 100, height / 2 + 100), 1, 1, random(0, TWO_PI)));
+    shapes.push(new Rectangle(random(200, width - 200), random(height / 2 - 100, height / 2 + 100), 25, 25, random(0, TWO_PI)));
   }  
 
   detector = new CollisionDetector();
@@ -41,22 +41,23 @@ function initSprings(){
   }
 }
 function mousePressed() {
-  // for(var i = 0; i < shapes.length; i++){
-  //   var testVec = createVector((mouseX - shapes[i].x1), (mouseY - shapes[i].y1));
-  //   //testVec.normalize();
-  //   if(!shapes[i].locked) shapes[i].addForce(testVec);
-  // }
+  for(var i = 0; i < shapes.length; i++){
+    var testVec = createVector((mouseX - shapes[i].x1), (mouseY - shapes[i].y1));
+    //testVec.normalize();
+    testVec.mult(0.01);
+    if(!shapes[i].locked) shapes[i].addForce(testVec);
+  }
 }
 function draw() {
 background(250);
   
-shapes[clothWidth - 1].x1 = width - 50;
-shapes[clothWidth - 1].y1 = 50;
+// shapes[clothWidth - 1].x1 = width - 50;
+// shapes[clothWidth - 1].y1 = 50;
 
-if(mouseIsPressed){
-  shapes[0].x1 = mouseX;
-  shapes[0].y1 = mouseY;
-}
+// if(mouseIsPressed){
+//   shapes[0].x1 = mouseX;
+//   shapes[0].y1 = mouseY;
+// }
 
 /*loops through shapes, finds nearby candidates using Table object, calls evaluate function - which detects collisions,
   resolves them, and applies an opposing force*/
@@ -73,7 +74,7 @@ for(var u = 0; u < timeStep; u++){
   var updateVector = createVector(0, 0);
   for (var p = 0; p < shapes.length; p++) {
     shapes[p].addForce(updateVector);
-    shapes[p].addGrav(gravity);
+    //shapes[p].addGrav(gravity);
   }
   lookup.updateTable(shapes);
   for(var i = 0; i < springs.length; i++){
