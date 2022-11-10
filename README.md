@@ -14,13 +14,13 @@
 >  - Make your way over to http://localhost:8000 to see the sketch running.
     
 **Rectangle object**
-  - Main object ==used for visualisation.== 
+  - Main object <mark>used for visualisation.</mark> 
   - Keeps track of important data about itself and contains function to move with respect to a given force.
 
 **Collision detection and resolution**
-  - Collision detection between rotated rectangles is achieved using ==[SAT](http://programmerart.weebly.com/separating-axis-theorem.html) (Seperating Axis Theorem).==
-  - Once collision between two rectangles is detected, ==a vector along the minimum depth of the collision
-    is found.==
+  - Collision detection between rotated rectangles is achieved using <mark>[SAT](http://programmerart.weebly.com/separating-axis-theorem.html) (Seperating Axis Theorem).</mark>
+  - Once collision between two rectangles is detected, <mark>a vector along the minimum depth of the collision
+    is found.</mark>
   - ==Each rectangle is moved along this vector== at half the depth of the collision, in opposite directions.
 
 **Collision Response**
@@ -31,7 +31,7 @@
 **Table object optimisation**
   - Every rectangle has to check with every other rectangle when checking for collisions. This algorithm has complexity O(n^2), which works
     well for small numbers of shapes, but can affect performance at higher numbers. 
-  - ==A 'Table' object was implemented to reduce comparisons.== An invisible grid is created across the canvas, and each rectangle stores its
+  - <mark>A 'Table' object was implemented to reduce comparisons.</mark> An invisible grid is created across the canvas, and each rectangle stores its
     position within this grid. When a rectangle looks for collisions it only checks other rectangles within the same grid position.
   
 **Spring Object**
